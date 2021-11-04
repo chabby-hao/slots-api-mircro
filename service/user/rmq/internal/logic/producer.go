@@ -37,14 +37,17 @@ func (l *Producer) Start() {
 
 	threading.GoSafe(func() {
 		ticker := time.NewTicker(time.Second)
-		for round := 0; round < 10; round++ {
+		for round := 0; ; round++ {
 			select {
 			case <-ticker.C:
-				count := rand.Intn(100)
-				m := model.Message{
-					Key:     strconv.FormatInt(time.Now().UnixNano(), 10),
-					Value:   fmt.Sprintf("%d,%d", round, count),
-					Payload: fmt.Sprintf("%d,%d", round, count),
+				randVal := rand.Intn(100)
+				m := &model.Message{
+					Key:   strconv.FormatInt(time.Now().UnixNano(), 10),
+					Value: fmt.Sprintf("%d,%d", round, randVal),
+					Payload: &model.Payload{
+						Round: round,
+						Rand:  randVal,
+					},
 				}
 				body, err := json.Marshal(m)
 				if err != nil {
@@ -55,6 +58,7 @@ func (l *Producer) Start() {
 				if err := l.pusher.Push(string(body)); err != nil {
 					log.Fatal(err)
 				}
+				l.svcCtx.CountCh <- round
 			}
 		}
 	})

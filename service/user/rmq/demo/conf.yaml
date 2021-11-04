@@ -1,0 +1,8 @@
+Name: kq
+Brokers:
+  - 192.168.1.33:9092
+#  - didi.batata.love:9092
+Group: adhoc
+Topic: kq
+Offset: first
+Consumers: 1

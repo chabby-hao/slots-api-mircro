@@ -5,15 +5,13 @@ import (
 )
 
 type ServiceContext struct {
-	Config config.Config
-	//Consumer dq.Consumer
-	//Consumerkq kq.ConsumeHandler
+	Config  config.Config
+	CountCh chan int
 }
 
 func NewServiceContext(c config.Config) *ServiceContext {
 	return &ServiceContext{
-		Config: c,
-		//Consumer: dq.NewConsumer(c.DqConf),
-		//Consumerkq: kq.MustNewQueue(c.KqConf, ),
+		Config:  c,
+		CountCh: make(chan int, 10),
 	}
 }
