@@ -1,0 +1,17 @@
+Name: rmq
+
+Log:
+  ServiceName: rmq
+  Level: info
+
+# KqConf
+KqConf:
+  Name: kq
+  Brokers:
+    - didi.batata.love:9092
+  #    - 127.0.0.1:19092
+  #    - 127.0.0.1:19092
+  Group: adhoc
+  Topic: kq
+  Offset: first
+  Consumers: 1
