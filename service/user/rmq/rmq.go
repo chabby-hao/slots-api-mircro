@@ -18,6 +18,11 @@ import (
 var configFile = flag.String("f", "etc/rmq.yaml", "the config file")
 
 func main() {
+	for {
+		fmt.Println("hello: " + time.Now().String())
+		time.Sleep(3 * time.Second)
+	}
+
 	flag.Parse()
 
 	//配置
