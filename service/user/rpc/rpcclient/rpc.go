@@ -5,8 +5,7 @@ package rpcclient
 
 import (
 	"context"
-
-	"rpc/rpc"
+	"gitlab.haloapps.com/batatagames/slots/backend/slots-api-micro/user/rpc/rpc"
 
 	"github.com/tal-tech/go-zero/zrpc"
 	"google.golang.org/grpc"

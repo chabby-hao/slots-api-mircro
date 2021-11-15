@@ -2,9 +2,8 @@ package logic
 
 import (
 	"context"
-
-	"rpc/internal/svc"
-	"rpc/rpc"
+	"gitlab.haloapps.com/batatagames/slots/backend/slots-api-micro/user/rpc/internal/svc"
+	"gitlab.haloapps.com/batatagames/slots/backend/slots-api-micro/user/rpc/rpc"
 
 	"github.com/tal-tech/go-zero/core/logx"
 )

@@ -5,10 +5,9 @@ package server
 
 import (
 	"context"
-
-	"rpc/internal/logic"
-	"rpc/internal/svc"
-	"rpc/rpc"
+	"gitlab.haloapps.com/batatagames/slots/backend/slots-api-micro/user/rpc/internal/logic"
+	"gitlab.haloapps.com/batatagames/slots/backend/slots-api-micro/user/rpc/internal/svc"
+	"gitlab.haloapps.com/batatagames/slots/backend/slots-api-micro/user/rpc/rpc"
 )
 
 type RpcServer struct {

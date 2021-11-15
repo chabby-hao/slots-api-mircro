@@ -1,0 +1,5 @@
+{
+  "user-api": "/service/user/api",
+  "user-rpc": "/service/user/rpc",
+  "user-rmq": "/service/user/rmq"
+}
