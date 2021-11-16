@@ -1,28 +1,13 @@
-[
-  {
-    "name": "user_rmq",
+{
+  "user_rmq": {
     "rolename": "xxxx",
     "path": "/service/user/rmq",
     "deps": [
-      {
-        "name": "batata-slots-redis",
-        "envs": {
-          "REDIS_HOST": "REDIS_HOST_T",
-          "REDIS_PORT": "REDIS_PORT_T",
-          "REDIS_HOST_RO": "REDIS_HOST_RO_T",
-          "REDIS_PORT_RO": "REDIS_PORT_RO_T"
-        }
-      },
-      {
-        "name": "batata-slots-mysql",
-        "envs": {
-          "DB_HOST": "DB_HOST_T",
-          "DB_PORT": "DB_PORT_T",
-          "DB_DATABASE": "DB_DATABASE_T",
-          "DB_USERNAME": "DB_USERNAME_T",
-          "DB_PASSWORD": "DB_PASSWORD_T"
-        }
-      }
-    ]
+      "batata-slots-redis",
+      "batata-slots-mysql"
+    ],
+    "volumes": {
+      "batata-efs-logs": "/path/to/container"
+    }
   }
-]
+}
