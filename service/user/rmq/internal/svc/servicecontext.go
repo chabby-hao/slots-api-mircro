@@ -5,13 +5,11 @@ import (
 )
 
 type ServiceContext struct {
-	Config  config.Config
-	CountCh chan int
+	Config config.Config
 }
 
 func NewServiceContext(c config.Config) *ServiceContext {
 	return &ServiceContext{
-		Config:  c,
-		CountCh: make(chan int, 10),
+		Config: c,
 	}
 }

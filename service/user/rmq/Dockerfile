@@ -4,7 +4,7 @@ LABEL stage=gobuilder
 
 ENV CGO_ENABLED 0
 ENV GOOS linux
-ENV GOPROXY https://goproxy.cn,direct
+#ENV GOPROXY https://goproxy.cn,direct
 
 WORKDIR /build/zero
 
@@ -25,4 +25,4 @@ WORKDIR /app
 COPY --from=builder /app/rmq /app/rmq
 COPY --from=builder /app/etc /app/etc
 
-CMD ["./rmq", "-f", "etc/rmq.yaml"]
+CMD ["./rmq", "-f", "etc/rmq_prod.yaml"]

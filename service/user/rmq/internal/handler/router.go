@@ -9,10 +9,7 @@ import (
 
 func RegisterJob(serverCtx *svc.ServiceContext, group *service.ServiceGroup) {
 
-	group.Add(logic.NewProducerLogic(context.Background(), serverCtx))
-	group.Add(logic.NewConsumerLogic(context.Background(), serverCtx))
-	group.Add(logic.NewCountLogic(context.Background(), serverCtx))
+	group.Add(logic.NewUserPromoteTagConsumerLogic(context.Background(), serverCtx))
 
 	group.Start()
-
 }

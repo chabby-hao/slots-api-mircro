@@ -15,5 +15,5 @@ AwsKqConf:
   Topic: slots-user-tags
 
 UserApiConf:
-  BaseUrl: http://dev.batata.love:7000
+  BaseUrl: https://slots-api.langlang-game.com
   Token: echo@x

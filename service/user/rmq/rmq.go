@@ -18,10 +18,6 @@ import (
 var configFile = flag.String("f", "etc/rmq.yaml", "the config file")
 
 func main() {
-	for {
-		fmt.Println("hello: " + time.Now().String())
-		time.Sleep(3 * time.Second)
-	}
 
 	flag.Parse()
 
@@ -41,13 +37,12 @@ func main() {
 		s := <-ch
 		logx.Info("get a signal %s", s.String())
 		switch s {
-		case syscall.SIGQUIT, syscall.SIGTERM, syscall.SIGINT:
+		case syscall.SIGQUIT, syscall.SIGTERM, syscall.SIGINT, syscall.SIGHUP:
 			fmt.Printf("stop group")
 			group.Stop()
 			logx.Info("job exit")
 			time.Sleep(time.Second)
 			return
-		case syscall.SIGHUP:
 		default:
 			return
 		}
