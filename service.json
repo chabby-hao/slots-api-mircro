@@ -2,7 +2,7 @@
   "user_rmq": {
     "rolename": "xxxx",
     "path": "/service/user/rmq",
-    "ports": "false"
+    "ports": ""
     "image": "302781730215.dkr.ecr.us-west-2.amazonaws.com/batata-slots-api-micro/user_rmq:API_TAG",
     "deps": [
       "batata-slots-redis",
