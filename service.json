@@ -1,5 +1,5 @@
 {
-  "user_rmq": {
+  "user-rmq": {
     "rolename": "xxxx",
     "path": "/service/user/rmq",
     "ports": [],
