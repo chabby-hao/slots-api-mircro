@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
+	"github.com/tal-tech/go-zero/core/logx"
 	"io/ioutil"
 	"net/http"
 	"net/url"
@@ -36,7 +37,9 @@ func (client *ApiClient) apiGet(path string, params map[string]interface{}) ([]b
 		queries.Add(k, fmt.Sprintf("%v", v))
 	}
 	queries.Set("token", client.conf.Token)
-	res, err := client.httpClient.Get(client.conf.BaseUrl + path + "?" + queries.Encode())
+	u := client.conf.BaseUrl + path + "?" + queries.Encode()
+	logx.Infof("user api call: %s", u)
+	res, err := client.httpClient.Get(u)
 	if err != nil {
 		return nil, err
 	}
@@ -47,6 +50,7 @@ func (client *ApiClient) apiGet(path string, params map[string]interface{}) ([]b
 	if err != nil {
 		return nil, errors.New(fmt.Sprintf("user api get read body error: %+v", err.Error()))
 	}
+	logx.Infof("res of %s: %s", u, string(body))
 	return body, nil
 }
 
