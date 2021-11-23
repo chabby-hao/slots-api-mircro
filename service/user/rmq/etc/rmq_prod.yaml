@@ -12,7 +12,7 @@ AwsKqConf:
     - b-2.prod-xgame-user-tags.vmb8rb.c2.kafka.us-west-2.amazonaws.com:9098
     - b-3.prod-xgame-user-tags.vmb8rb.c2.kafka.us-west-2.amazonaws.com:9098
   Group: batata_slots_user_rmq
-  Topic: slots-user-tags
+  Topic: slots-user-tags-1
 
 UserApiConf:
   BaseUrl: https://slots-api.langlang-game.com

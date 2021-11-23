@@ -49,9 +49,15 @@ func (l *UserPromoteTagConsumer) Consume(record *kgo.Record) error {
 
 	var info = new(model.UserPromoteTagInfo)
 	err := json.Unmarshal(record.Value, info)
+
+	// 不能 json 解析的都认为是可以忽略的
 	if err != nil {
-		// 不能 json 解析的都认为是可以忽略的
 		logx.Error(err)
+		return nil
+	}
+
+	// 如果推广标签是 NA
+	if info.UserTag == "NA" || info.UserTag == "" {
 		return nil
 	}
 
