@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package gitlab.haloapps.com/batatagames/slots/backend/slots-api-micro/user/rpc;
+package rpc;
 
 message Request {
   string ping = 1;
