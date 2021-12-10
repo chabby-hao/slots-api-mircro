@@ -2,31 +2,48 @@ syntax = "proto3";
 
 package activity;
 
+/*
+列出所有活动的请求信息
+ */
 message ListAllRequest {
 }
 
+/*
+列出所有活动的相应信息
+ */
 message ListAllResponse {
+  // 活动列表
   repeated ActivityInfo list = 1;
 }
 
+// 活动信息
 message ActivityInfo {
   int64 id      = 1;
+  // 活动类型
   int64 type    = 2;
+  // 开放等级
   int64 level   = 3;
+  // 活动撞他
   int64 status  = 4;
+  // 开始时间（Unix时间戳）
   int64 startAt = 5;
+  // 结束时间（Unix时间戳）
   int64 endAt   = 6;
 }
 
+// 按类型列出活动的请求
 message ListByTypeRequest {
   int64 type = 1;
 }
-
+// 按类型列出活动的相应
 message ListByTypeResponse {
+  // 活动列表
   repeated ActivityInfo list = 1;
 }
 
 service Activity {
+  // 列出所有活动
   rpc ListAll(ListAllRequest) returns(ListAllResponse);
+  // 按类型列出活动（比如：底部）
   rpc ListByType(ListByTypeRequest) returns(ListByTypeResponse);
 }
